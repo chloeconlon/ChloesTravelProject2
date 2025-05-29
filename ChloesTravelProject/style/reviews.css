@@ -1,0 +1,232 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 2.5rem auto 0 auto;
+    padding: 1rem;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+h1 {
+    text-align: left;
+    color: #2a4365;
+    margin-bottom: 1.2rem;
+    font-size: 2.3rem;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .7rem;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.filter-form input[type="text"] {
+    flex: 1 1 250px;
+    padding: 10px;
+    border: 1.5px solid #d0d8e9;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #fff;
+}
+
+.filter-form button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #4f8cff;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.filter-form button#clearFilter {
+    background: #aaa;
+    color: #fff;
+}
+
+.filter-form button:hover {
+    background: #3571af;
+}
+
+.add-review-form {
+    margin-top: 2.5rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 2rem 2.25rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add-review-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    color: #254087;
+}
+
+.add-review-form .form-group {
+    margin-bottom: 1.1rem;
+    position: relative;
+}
+
+.add-review-form label {
+    font-weight: 500;
+    color: #37507a;
+    margin-bottom: .3rem;
+    display: block;
+}
+
+.add-review-form input[type="text"],
+.add-review-form textarea {
+    width: 100%;
+    background: #f5f7fa;
+    border: 1.5px solid #d0d8e9;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    margin-bottom: .2rem;
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.add-review-form input[type="text"]:focus,
+.add-review-form textarea:focus {
+    border-color: #6da3fb;
+    background: #eef6ff;
+}
+
+.add-review-form textarea {
+    min-height: 70px;
+    resize: vertical;
+}
+
+.star-rating {
+    direction: rtl;
+    font-size: 2rem;
+    unicode-bidi: bidi-override;
+    text-align: left;
+    user-select: none;
+    display: inline-flex;
+    gap: 0.08em;
+}
+
+.star-rating span {
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.16s;
+}
+
+.star-rating span.selected,
+.star-rating span:hover,
+.star-rating span:hover~span {
+    color: #ffc107;
+}
+
+.star-rating span.selected~span {
+    color: #ccc;
+}
+
+.add-review-form .autocomplete-suggestions,
+.filter-form .autocomplete-suggestions {
+    position: absolute;
+    z-index: 10;
+    background: #fff;
+    border: 1px solid #d0d8e9;
+    border-radius: 0 0 8px 8px;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    max-height: 180px;
+    overflow-y: auto;
+    box-shadow: 0 4px 14px rgba(60, 60, 60, 0.07);
+}
+
+.add-review-form .autocomplete-suggestion,
+.filter-form .autocomplete-suggestion {
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+}
+
+.add-review-form .autocomplete-suggestion:hover,
+.filter-form .autocomplete-suggestion:hover {
+    background: #e6f1ff;
+}
+
+.add-review-form button[type="submit"] {
+    background: linear-gradient(90deg, #4f8cff 0%, #70b8ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.85rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.18s, box-shadow 0.18s;
+    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
+    display: block;
+    width: 100%;
+}
+
+.add-review-form button[type="submit"]:hover {
+    background: linear-gradient(90deg, #3c73d2 0%, #3571af 100%);
+}
+
+#reviewMsg {
+    margin-top: .7rem;
+    font-weight: 500;
+    color: #2e7d32;
+    min-height: 1.3em;
+}
+
+.review-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07), 0 1.5px 4px rgba(0, 0, 0, 0.07);
+    margin-bottom: 1.5rem;
+    padding: 1.3rem 1.8rem 1.2rem 1.8rem;
+}
+
+.review-card h3 {
+    margin: 0 0 .3rem 0;
+    font-size: 1.14em;
+    color: #1b2845;
+}
+
+.review-card .rating {
+    color: #ffc107;
+    font-size: 1.2em;
+    margin-bottom: .4rem;
+    display: inline-block;
+}
+
+.review-card p {
+    margin: .6rem 0;
+}
+
+.review-card small {
+    color: #a0aec0;
+}
+
+@media (max-width: 600px) {
+    .add-review-form {
+        padding: 1.2rem;
+        max-width: 98vw;
+    }
+}

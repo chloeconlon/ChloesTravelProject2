@@ -1,0 +1,265 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8f0;
+    color: #333;
+}
+
+.container {
+    margin: 100px auto 0;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 900px;
+    text-align: center;
+}
+
+h1 {
+    color: #4f784f;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.2rem;
+    color: #4f784f;
+}
+
+select {
+    margin-top: 10px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f0f8f0;
+    transition: box-shadow 0.3s ease;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 5px #8fbc8f;
+}
+
+/* Cards grid */
+.sightings-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.sighting-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 1rem 0;
+    transition: transform 0.2s;
+    margin-bottom: 1rem;
+}
+
+.sighting-card:hover {
+    transform: scale(1.03);
+}
+
+.sighting-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    background: #eee;
+}
+
+.card-body {
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.card-body h5 {
+    margin: 0 0 0.5rem 0;
+    color: #4f784f;
+}
+
+.card-body .date {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.card-body .notes {
+    font-size: 1rem;
+    color: #444;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .sighting-card {
+        width: 98%;
+    }
+
+    .sightings-grid {
+        gap: 0.5rem;
+    }
+}
+
+/* 
+.add-sighting-form {
+    background: #f8fff8;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px #0001;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add-sighting-form form>* {
+    margin-bottom: 12px;
+}
+
+.add-sighting-form button {
+    background: #8fbc8f;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    cursor: pointer;
+} */
+/* Container for the modern form */
+.add-sighting-form {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07), 0 1.5px 4px rgba(0, 0, 0, 0.07);
+    padding: 2rem 2.5rem;
+    margin: 2rem auto 0 auto;
+    max-width: 520px;
+}
+
+.add-sighting-form h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #24324d;
+    letter-spacing: -1px;
+}
+
+#sightingForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #37507a;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: #f5f7fa;
+    border: 1.5px solid #d0d8e9;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #6da3fb;
+    background: #eef6ff;
+}
+
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+#sightingForm button[type="submit"] {
+    background: #8fbc8f;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.85rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(79, 140, 255, 0.10);
+}
+
+#sightingForm button[type="submit"]:hover {
+    background: #8fbc8f;
+}
+
+#sightingFormMsg {
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+    .add-sighting-form {
+        padding: 1.2rem;
+        max-width: 98vw;
+    }
+
+    #sightingForm button[type="submit"] {
+        width: 100%;
+    }
+}
+
+.sightings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-top: 2.5rem;
+}
+
+.sighting-card {
+    background: linear-gradient(135deg, #eaf7ea, #fffce5);
+    border-radius: 24px;
+    box-shadow: 0 6px 18px rgba(180, 200, 180, 0.2), 0 1px 3px rgba(160, 180, 160, 0.1);
+    padding: 1.6rem 1.3rem 1.3rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.sighting-card:hover {
+    transform: translateY(-4px);
+}
+
+.sighting-card img {
+    width: 100%;
+    max-width: 220px;
+    max-height: 160px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    background: #f5fce8;
+    border: 2px solid #e5f4d0;
+    box-shadow: 0 2px 10px rgba(220, 240, 200, 0.5);
+}
