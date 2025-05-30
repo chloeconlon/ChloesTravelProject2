@@ -101,44 +101,38 @@
 // (Insert statements go here)
     
 
-
-    // INSERTING ANIMAL ENTRIES
-    $sql = "INSERT INTO Animals (animal_id, name, species, description, habitat, created_at) VALUES
-(1, 'Charlie', 'Dog', 'A friendly golden retriever who loves playing fetch.', 'Domestic', '2024-01-01 08:30:00'),
-(2, 'Mittens', 'Cat', 'A curious tabby cat that enjoys climbing.', 'Domestic', '2024-01-02 09:00:00'),
-(3, 'Benny', 'Rabbit', 'A small white rabbit with long ears.', 'Meadow', '2024-01-03 10:00:00'),
-(4, 'Polly', 'Parrot', 'A green parrot with a red beak that talks.', 'Tropical Forest', '2024-01-04 11:00:00'),
-(5, 'Sammy', 'Turtle', 'A slow-moving turtle that lives near water.', 'Wetlands', '2024-01-05 12:30:00'),
-(6, 'Luna', 'Horse', 'A strong black horse used for riding.', 'Grasslands', '2024-01-06 13:45:00'),
-(7, 'Rex', 'Iguana', 'A large iguana that loves to sunbathe.', 'Desert', '2024-01-07 14:20:00'),
-(8, 'Goldie', 'Fish', 'A small goldfish that lives in a tank.', 'Aquatic', '2024-01-08 15:00:00'),
-(9, 'Spike', 'Hedgehog', 'A spiky little animal that curls into a ball.', 'Forest', '2024-01-09 16:30:00'),
-(10, 'Bella', 'Dog', 'A playful beagle with lots of energy.', 'Domestic', '2024-01-10 17:00:00'),
-(11, 'Max', 'Cat', 'A fluffy Maine Coon with striking green eyes.', 'Domestic', '2024-01-11 18:20:00'),
-(12, 'Shadow', 'Wolf', 'A large gray wolf with piercing yellow eyes.', 'Forest', '2024-01-12 19:00:00'),
-(13, 'Ruby', 'Fox', 'A cunning red fox that is quick and agile.', 'Forest', '2024-01-13 20:15:00'),
-(14, 'Oscar', 'Otter', 'A playful otter that loves sliding into the water.', 'River', '2024-01-14 07:00:00'),
-(15, 'Coco', 'Monkey', 'A mischievous capuchin monkey.', 'Tropical Forest', '2024-01-15 08:45:00'),
-(16, 'Daisy', 'Cow', 'A gentle dairy cow with a shiny black coat.', 'Farmland', '2024-01-16 09:30:00'),
-(17, 'Finn', 'Dolphin', 'A social and intelligent bottlenose dolphin.', 'Ocean', '2024-01-17 10:30:00'),
-(18, 'Whiskers', 'Cat', 'A Siamese cat with a regal demeanor.', 'Domestic', '2024-01-18 11:15:00'),
-(19, 'Penny', 'Pig', 'A pink pig that loves rolling in the mud.', 'Farmland', '2024-01-19 12:00:00'),
-(20, 'Zeus', 'Eagle', 'A majestic bald eagle soaring high in the sky.', 'Mountains', '2024-01-20 13:30:00'),
-(21, 'Rocky', 'Goat', 'A mountain goat that climbs steep slopes.', 'Mountains', '2024-01-21 14:15:00'),
-(22, 'Jasper', 'Bear', 'A large brown bear found near rivers.', 'Forest', '2024-01-22 15:00:00'),
-(23, 'Willow', 'Deer', 'A graceful deer with a sleek brown coat.', 'Forest', '2024-01-23 16:45:00'),
-(24, 'Amber', 'Kangaroo', 'A hopping kangaroo with a baby in her pouch.', 'Grasslands', '2024-01-24 17:30:00'),
-(25, 'Ginger', 'Cat', 'An orange tabby cat with a sweet personality.', 'Domestic', '2024-01-25 18:15:00'),
-(26, 'Bolt', 'Dog', 'A fast greyhound that loves running.', 'Domestic', '2024-01-26 19:00:00'),
-(27, 'Oliver', 'Horse', 'A majestic Arabian horse with a shiny coat.', 'Grasslands', '2024-01-27 07:00:00'),
-(28, 'Blaze', 'Falcon', 'A peregrine falcon known for its speed.', 'Mountains', '2024-01-28 08:30:00'),
-(29, 'Lily', 'Swan', 'A graceful white swan that glides on water.', 'Lakes', '2024-01-29 09:15:00'),
-(30, 'Ruby_Tiger', 'Tiger', 'A fierce Bengal tiger with striking stripes.', 'Jungle', '2024-01-30 10:00:00');
+    // INSERTING ANIMAL ENTRIES WITH image_url
+    $sql = "INSERT INTO Animals (animal_id, name, species, description, habitat, image_url, created_at) VALUES
+(1, 'Charlie', 'Dog', 'A friendly golden retriever who loves playing fetch.', 'Domestic', 'images/CharlieDog.jpg', '2024-01-01 08:30:00'),
+(2, 'Mittens', 'Cat', 'A curious tabby cat that enjoys climbing.', 'Domestic', 'images/MittensTree.jpg', '2024-01-02 09:00:00'),
+(3, 'Benny', 'Rabbit', 'A small white rabbit with long ears.', 'Meadow', 'images/BennyY.jpg', '2024-01-03 10:00:00'),
+(4, 'Polly', 'Parrot', 'A green parrot with a red beak that talks.', 'Tropical Forest', 'images/PollyParrot.jpg', '2024-01-04 11:00:00'),
+(5, 'Sammy', 'Turtle', 'A slow-moving turtle that lives near water.', 'Wetlands', 'images/SammyWater.jpg', '2024-01-05 12:30:00'),
+(6, 'Luna', 'Horse', 'A strong black horse used for riding.', 'Grasslands', 'images/LunaStrong.jpg', '2024-01-06 13:45:00'),
+(7, 'Rex', 'Iguana', 'A large iguana that loves to sunbathe.', 'Desert', 'images/RexSunbathe.jpg', '2024-01-07 14:20:00'),
+(8, 'Goldie', 'Fish', 'A small goldfish that lives in a tank.', 'Aquatic', 'images/GoldieTank.jpg', '2024-01-08 15:00:00'),
+(9, 'Spike', 'Hedgehog', 'A spiky little animal that curls into a ball.', 'Forest', 'images/SpikeCurl.jpg', '2024-01-09 16:30:00'),
+(10, 'Bella', 'Dog', 'A playful beagle with lots of energy.', 'Domestic', 'images/BellaBeagle.jpg', '2024-01-10 17:00:00'),
+(11, 'Max', 'Cat', 'A fluffy Maine Coon with striking green eyes.', 'Domestic', 'images/MaxGreen.jpg', '2024-01-11 18:20:00'),
+(12, 'Shadow', 'Wolf', 'A large gray wolf with piercing yellow eyes.', 'Forest', 'images/ShadowGrey.jpg', '2024-01-12 19:00:00'),
+(13, 'Ruby', 'Fox', 'A cunning red fox that is quick and agile.', 'Forest', 'images/RubyFox.jpg', '2024-01-13 20:15:00'),
+(14, 'Oscar', 'Otter', 'A playful otter that loves sliding into the water.', 'River', 'images/OscarOtter.jpg', '2024-01-14 07:00:00'),
+(15, 'Coco', 'Monkey', 'A mischievous capuchin monkey.', 'Tropical Forest', 'images/CocoMonkey.jpg', '2024-01-15 08:45:00'),
+(16, 'Daisy', 'Cow', 'A gentle dairy cow with a shiny black coat.', 'Farmland', 'images/DaisyCow.jpg', '2024-01-16 09:30:00'),
+(18, 'Whiskers', 'Cat', 'A Siamese cat with a regal demeanor.', 'Domestic', 'images/WhiskersCat.jpg', '2024-01-18 11:15:00'),
+(19, 'Penny', 'Pig', 'A pink pig that loves rolling in the mud.', 'Farmland', 'images/PennyPig.jpg', '2024-01-19 12:00:00'),
+(20, 'Zeus', 'Eagle', 'A majestic bald eagle soaring high in the sky.', 'Mountains', 'images/ZeusEagle.jpg', '2024-01-20 13:30:00'),
+(21, 'Rocky', 'Goat', 'A mountain goat that climbs steep slopes.', 'Mountains', 'images/RockyGoat.jpg', '2024-01-21 14:15:00'),
+(22, 'Jasper', 'Bear', 'A large brown bear found near rivers.', 'Forest', 'images/JasperBear.jpg', '2024-01-22 15:00:00'),
+(23, 'Willow', 'Deer', 'A graceful deer with a sleek brown coat.', 'Forest', 'images/WillowDeer.jpg', '2024-01-23 16:45:00'),
+(24, 'Amber', 'Kangaroo', 'A hopping kangaroo with a baby in her pouch.', 'Grasslands', 'images/AmberKangaroo.jpg', '2024-01-24 17:30:00'),
+(29, 'Lily', 'Swan', 'A graceful white swan that glides on water.', 'Lakes', 'images/GracefulSwan.jpg', '2024-01-29 09:15:00'),
+(30, 'Ruby_Tiger', 'Tiger', 'A fierce Bengal tiger with striking stripes.', 'Jungle', 'images/FierceTiger.jpg', '2024-01-30 10:00:00');
 ";
     if ($conn->query($sql) === TRUE) {
-        echo "Animal Table entries created successfully<br>";
+        echo "Animal Table entries with images created successfully<br>";
     } else {
-        echo "Error creating table: " . $conn->error;
+        echo "Error inserting records: " . $conn->error;
     }
 
     $sql = "INSERT INTO Destinations (name, description, country, created_at, latitude, longitude, image_url) VALUES
@@ -190,24 +184,23 @@
     } else {
         echo "Error creating table: " . $conn->error;
     }
-
-    $sql = " INSERT INTO Animal_Sightings (animal_id, destination_id, sighting_date, notes) VALUES
-(1, 1, '2024-01-10 14:30:00', 'Charlie spotted playing in the park.'),
-(2, 2, '2024-01-11 09:00:00', 'Mittens seen climbing a tree.'),
-(3, 3, '2024-01-12 10:15:00', 'Benny hopping around the meadow.'),
-(4, 4, '2024-01-13 11:45:00', 'Polly talking to tourists.'),
-(5, 5, '2024-01-14 12:30:00', 'Sammy basking in the sun.'),
-(1, 2, '2024-01-15 14:00:00', 'Charlie chasing a ball.'),
-(2, 3, '2024-01-16 09:30:00', 'Mittens exploring the meadow.'),
-(2, 4, '2024-02-10 09:30:00', 'Mittens exploring a new area.'),
-(3, 5, '2024-02-11 10:45:00', 'Benny hiding under a log.'),
-(4, 1, '2024-02-12 11:15:00', 'Polly singing loudly.'),
-(5, 2, '2024-02-13 12:00:00', 'Sammy resting near water.'),
-(1, 4, '2024-02-14 14:45:00', 'Charlie running in circles.'),
-(2, 5, '2024-02-15 09:15:00', 'Mittens playing with leaves.'),
-(3, 1, '2024-02-16 10:30:00', 'Benny hopping around happily.'),
-(4, 2, '2024-02-17 11:00:00', 'Polly interacting with children.'),
-(5, 3, '2024-02-18 12:45:00', 'Sammy slowly moving around.');";
+    $sql = "INSERT INTO Animal_Sightings (animal_id, destination_id, sighting_date, image_url, notes) VALUES
+(1, 1, '2024-01-10 14:30:00', 'images/CharliePark.jpg', 'Charlie spotted playing in the park.'),
+(2, 2, '2024-01-11 09:00:00', 'images/MittensTree.jpg', 'Mittens seen climbing a tree.'),
+(3, 3, '2024-01-12 10:15:00', 'images/BennyHopping.jpg', 'Benny hopping around the meadow.'),
+(4, 4, '2024-01-13 11:45:00', 'images/PollyParrot.jpg', 'Polly talking to tourists.'),
+(5, 5, '2024-01-14 12:30:00', 'images/SammyMoving', 'Sammy basking in the sun.'),
+(1, 2, '2024-01-15 14:00:00', 'images/CharlieDog.jpg', 'Charlie chasing a ball.'),
+(2, 3, '2024-01-16 09:30:00', 'images/MittensMeadow.jpg', 'Mittens exploring the meadow.'),
+(2, 4, '2024-02-10 09:30:00', 'images/MittensNewArea.jpg', 'Mittens exploring a new area.'),
+(3, 5, '2024-02-11 10:45:00', 'images/BennyLog.jpg', 'Benny hiding under a log.'),
+(4, 1, '2024-02-12 11:15:00', 'images/PollySinging.jpg', 'Polly singing loudly.'),
+(5, 2, '2024-02-13 12:00:00', 'images/SammyWater.jpg', 'Sammy resting near water.'),
+(1, 4, '2024-02-14 14:45:00', 'images/CharlieCircles.jpg', 'Charlie running in circles.'),
+(2, 5, '2024-02-15 09:15:00', 'images/MittensLeaves.jpg', 'Mittens playing with leaves.'),
+(3, 1, '2024-02-16 10:30:00', 'images/BennyHopping.jpg', 'Benny hopping around happily.'),
+(4, 2, '2024-02-17 11:00:00', 'images/PollyKids.jpg', 'Polly interacting with children.'),
+(5, 3, '2024-02-18 12:45:00', 'images/Turtle.jpg', 'Sammy slowly moving around.');";
 
     if ($conn->query($sql) === TRUE) {
         echo "Animal Sightings Table entries created successfully<br>";
