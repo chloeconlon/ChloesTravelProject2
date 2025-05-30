@@ -97,8 +97,7 @@
 ) ENGINE=InnoDB;";
     $conn->query($sql);
 
-    // Now you can safely insert data into your tables...
-// (Insert statements go here)
+//Inserts
     
 
     // INSERTING ANIMAL ENTRIES WITH image_url
