@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-
-// Default avatar
+session_start();
 $avatar = 'avatar0.jpg';
 
 if (isset($_SESSION['user_id'])) {
@@ -12,7 +11,6 @@ if (isset($_SESSION['user_id'])) {
         $avatar = $_COOKIE['selected_avatar'];
         $_SESSION['selected_avatar'] = $avatar;
     } else {
-
         require_once 'DatabaseGenerator.php';
         $stmt = $conn->prepare("SELECT avatar FROM Users WHERE user_id = ?");
         if ($stmt) {
@@ -24,12 +22,12 @@ if (isset($_SESSION['user_id'])) {
                 $avatar = !empty($user['avatar']) ? $user['avatar'] : 'avatar0.jpg';
                 $_SESSION['selected_avatar'] = $avatar;
                 setcookie("selected_avatar", $avatar, time() + (86400 * 30), "/", "localhost", false, true);
-
             }
             $stmt->close();
         }
     }
-} ?>
+}
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -40,56 +38,141 @@ if (isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="style/nav_footer.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: #f0f8f0;
+            color: #333;
         }
 
+        /* Navbar */
+        .navbar {
+            background-color: #8fbc8f;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-right a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin: 0 10px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-right a:hover {
+            background-color: #6c9e6c;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+
+        }
+
+        .navbar-avatar {
+            margin-left: 20px;
+        }
+
+        .navbar-avatar img {
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
+            padding: 2rem 1rem;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 100, 0, 0.05);
+        }
+
+        h1 {
+            color: #2f5e3f;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 2rem;
         }
 
         .filter-form {
-            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
         }
 
         .filter-form select,
         .filter-form button {
-            padding: 10px;
-            margin-right: 10px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: 1px solid #b2d8b2;
+            background-color: #e7f5e7;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-form button {
+            background-color: #97cc97;
+            color: white;
+            border: none;
+        }
+
+        .filter-form button:hover {
+            background-color: #6dbf6d;
         }
 
         .destinations-list {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
         .destination-card {
-            background-color: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #f3fff3, #ffffff);
+            border-radius: 16px;
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(150, 180, 150, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(150, 180, 150, 0.2);
         }
 
         .destination-card img {
-            max-width: 100%;
-            height: 150px;
+            width: 100%;
+            height: 140px;
             object-fit: cover;
-            border-radius: 5px;
+            border-radius: 10px;
+            margin-bottom: 10px;
         }
 
         .destination-card h3 {
-            margin: 10px 0 5px;
+            margin: 0.5rem 0;
+            color: #2f5e3f;
+            font-size: 1.2rem;
         }
 
         .destination-card p {
-            margin: 5px 0;
+            margin: 0.3rem 0;
+            font-size: 0.95rem;
+            color: #4a4a4a;
         }
     </style>
 </head>
+
 <header> <!-- Navbar -->
     <div class="navbar">
         <div class="navbar-container">
@@ -102,7 +185,6 @@ if (isset($_SESSION['user_id'])) {
                 <a href="login_signup.php">Login</a>
             </div>
 
-
             <div class="navbar-avatar">
                 <a href="profile.php">
 
@@ -111,6 +193,7 @@ if (isset($_SESSION['user_id'])) {
                         height="50px">
                 </a>
             </div>
+
         </div>
     </div>
 </header>
@@ -121,11 +204,15 @@ if (isset($_SESSION['user_id'])) {
     <div class="container">
         <h1>Destinations</h1>
 
-        <!-- Filter Form -->
+        <!-- Filter Form for destinations -->
         <div class="filter-form">
             <select id="countryFilter">
                 <option value="">Select Country</option>
                 <option value="Chile">Chile</option>
+                <option value="Ireland">Ireland</option>
+                <option value="USA">USA</option>
+                <option value="Australia">Australia</option>
+                <option value="Spain">Spain</option>
                 <option value="South Africa">South Africa</option>
                 <option value="Vietnam">Vietnam</option>
                 <option value="Turkey">Turkey</option>
@@ -158,6 +245,7 @@ if (isset($_SESSION['user_id'])) {
 
     <script>
         $(document).ready(function () {
+
             // fetch and display destinations
             function fetchDestinations(country = '') {
                 $.ajax({
@@ -176,6 +264,7 @@ if (isset($_SESSION['user_id'])) {
             // Display the fetched destinations
             function displayDestinations(destinations) {
                 const destinationsList = $('#destinationsList');
+
                 // Clear existing destinations list
                 destinationsList.empty();
 
